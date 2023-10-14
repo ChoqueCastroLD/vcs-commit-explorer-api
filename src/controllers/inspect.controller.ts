@@ -8,6 +8,7 @@ export async function inspect(vcs: string, owner: string, repository: string) {
         owner: repositoryInformation.owner.login,
         owner_avatar_url: repositoryInformation.owner.avatar_url,
         owner_url: repositoryInformation.owner.url,
+        name: repositoryInformation.name,
         description: repositoryInformation.description,
         stars: repositoryInformation.stargazers_count,
         watchers: repositoryInformation.watchers_count,

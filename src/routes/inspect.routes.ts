@@ -22,6 +22,7 @@ export const router = () => new Elysia()
                 description: t.String(),
                 stars: t.Number(),
                 watchers: t.Number(),
+                forks: t.Number(),
                 language: t.String(),
                 default_branch: t.String(),
                 license_name: t.String(),

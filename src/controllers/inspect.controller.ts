@@ -11,6 +11,7 @@ export async function inspect(vcs: string, owner: string, repository: string) {
         description: repositoryInformation.description,
         stars: repositoryInformation.stargazers_count,
         watchers: repositoryInformation.watchers_count,
+        forks: repositoryInformation.forks_count,
         language: repositoryInformation.language,
         default_branch: repositoryInformation.default_branch,
         license_name: repositoryInformation.license?.name,

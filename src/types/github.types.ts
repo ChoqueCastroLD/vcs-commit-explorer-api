@@ -1,28 +1,28 @@
-export interface RepositoryInfo {
+export interface GitHubRepository {
     id: number;
     node_id: string;
     name: string;
     full_name: string;
     private: boolean;
     owner: {
-      login: string;
-      id: number;
-      node_id: string;
-      avatar_url: string;
-      gravatar_id: string;
-      url: string;
-      html_url: string;
-      followers_url: string;
-      following_url: string;
-      gists_url: string;
-      starred_url: string;
-      subscriptions_url: string;
-      organizations_url: string;
-      repos_url: string;
-      events_url: string;
-      received_events_url: string;
-      type: string;
-      site_admin: boolean;
+        login: string;
+        id: number;
+        node_id: string;
+        avatar_url: string;
+        gravatar_id: string;
+        url: string;
+        html_url: string;
+        followers_url: string;
+        following_url: string;
+        gists_url: string;
+        starred_url: string;
+        subscriptions_url: string;
+        organizations_url: string;
+        repos_url: string;
+        events_url: string;
+        received_events_url: string;
+        type: string;
+        site_admin: boolean;
     };
     html_url: string;
     description: string;
@@ -88,11 +88,11 @@ export interface RepositoryInfo {
     disabled: boolean;
     open_issues_count: number;
     license: {
-      key: string;
-      name: string;
-      spdx_id: string;
-      url: string;
-      node_id: string;
+        key: string;
+        name: string;
+        spdx_id: string;
+        url: string;
+        node_id: string;
     };
     allow_forking: boolean;
     is_template: boolean;
@@ -106,4 +106,59 @@ export interface RepositoryInfo {
     temp_clone_token: string | null;
     network_count: number;
     subscribers_count: number;
-  }
+}
+
+export interface GitHubBranch {
+    name: string;
+    commit: {
+        sha: string;
+        url: string;
+    };
+    protected: boolean;
+}
+
+interface CommitAuthor {
+    name: string;
+    email: string;
+    date: string;
+}
+
+interface CommitTree {
+    sha: string;
+    url: string;
+}
+
+interface CommitVerification {
+    verified: boolean;
+    reason: string;
+    signature: string | null;
+    payload: string | null;
+}
+
+interface Commit {
+    author: CommitAuthor;
+    committer: CommitAuthor;
+    message: string;
+    tree: CommitTree;
+    url: string;
+    comment_count: number;
+    verification: CommitVerification;
+}
+
+interface GitHubCommitParent {
+    sha: string;
+    url: string;
+    html_url: string;
+}
+
+export interface GitHubCommit {
+    sha: string;
+    node_id: string;
+    commit: Commit;
+    url: string;
+    html_url: string;
+    comments_url: string;
+    author: null; // You can define this type if needed
+    committer: null; // You can define this type if needed
+    parents: GitHubCommitParent[];
+}

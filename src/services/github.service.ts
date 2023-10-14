@@ -1,6 +1,6 @@
 import { GitHubRepository, GitHubBranch, GitHubCommit } from "../types/github.types";
 
-const BASE_URL: string = Bun.env.GITHUB_API_URL || "";
+const BASE_URL: string = Bun.env.GITHUB_API_URL || "https://api.github.com";
 
 async function fetchJSON(url: string) {
   const response = await fetch(url);

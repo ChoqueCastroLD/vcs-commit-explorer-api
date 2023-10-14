@@ -158,7 +158,7 @@ export interface GitHubCommit {
     url: string;
     html_url: string;
     comments_url: string;
-    author: null; // You can define this type if needed
-    committer: null; // You can define this type if needed
+    author: null;
+    committer: null;
     parents: GitHubCommitParent[];
 }

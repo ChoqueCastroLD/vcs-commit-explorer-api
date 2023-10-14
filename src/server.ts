@@ -6,11 +6,13 @@ import { router } from './routes/router'
 import { loggerPlugin } from "./plugins/logger.plugin"
 
 
-const app = new Elysia()
+const PORT = Bun.env.PORT ?? 3000
+
+export const app = new Elysia()
 	.use(cors())
 	.use(swagger())
 	.use(loggerPlugin())
 	.use(router())
-	.listen(Bun.env.PORT ?? 3000)
+	.listen(PORT)
 
 console.log(`🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`)

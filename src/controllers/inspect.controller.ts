@@ -1,8 +1,9 @@
-import GithubService from "../services/github.service"
+import GitHubService from "../services/github.service"
 
 
-export async function inspect(owner: string, repository: string) {
-    const repositoryInformation = await GithubService.getRepositoryInformation(owner, repository)
+export async function inspect(vcs: string, owner: string, repository: string) {
+    const repositoryInformation = await GitHubService.getRepositoryInformation(owner, repository)
+
     return {
         owner: repositoryInformation.owner.login,
         owner_avatar_url: repositoryInformation.owner.avatar_url,
@@ -16,6 +17,6 @@ export async function inspect(owner: string, repository: string) {
         license_url: repositoryInformation.license?.url,
         fork: repositoryInformation.fork,
         created_at: repositoryInformation.created_at,
-        updated_at: repositoryInformation.updated_at,
+        updated_at: repositoryInformation.updated_at
     }
 }

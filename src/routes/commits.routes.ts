@@ -23,8 +23,8 @@ export const router = () => new Elysia()
                     message: t.String(),
                     author_name: t.String(),
                     author_email: t.String(),
-                    commiter_name: t.String(),
-                    commiter_email: t.String(),
+                    committer_name: t.String(),
+                    committer_email: t.String(),
                     parents: t.Array(t.String())
                 })
             )

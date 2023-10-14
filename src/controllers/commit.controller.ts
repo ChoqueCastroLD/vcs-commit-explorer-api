@@ -10,8 +10,8 @@ export async function getCommits(vcs: string, owner: string, repository: string,
             message: commit.message,
             author_name: commit.author.name,
             author_email: commit.author.email,
-            commiter_name: commit.committer.name,
-            commiter_email: commit.committer.email,
+            committer_name: commit.committer.name,
+            committer_email: commit.committer.email,
             parents: parents.map(({ sha }) => sha)
         }
     })

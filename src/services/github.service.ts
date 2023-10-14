@@ -6,6 +6,9 @@ async function fetchJSON(url: string) {
   const response = await fetch(url);
 
   if (!response.ok) {
+    const error_message = await response.text();
+    console.error(`Failed to fetch data on '${url}'`);
+    console.error(error_message);
     throw new Error(`Failed to fetch data. Status: ${response.status}`);
   }
 

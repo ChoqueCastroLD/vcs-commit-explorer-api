@@ -32,7 +32,7 @@ export default {
   },
 
   async getCommits(owner: string, repo: string, sha: string): Promise<GitHubCommit[]> {
-    const apiUrl = `${BASE_URL}/repos/${owner}/${repo}/commits?sha=${encodeURIComponent(sha)}`;
+    const apiUrl = `${BASE_URL}/repos/${owner}/${repo}/commits?per_page=100&sha=${encodeURIComponent(sha)}`;
     return fetchJSON(apiUrl);
   },
 }
